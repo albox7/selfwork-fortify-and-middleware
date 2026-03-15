@@ -10,4 +10,5 @@ class PublicController extends Controller
     {
         return view('home');
     }
-}
+
+    }

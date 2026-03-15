@@ -73,7 +73,7 @@ return [
     |
     */
 
-    'home' => '/home',
+    'home' => '/',
 
     /*
     |--------------------------------------------------------------------------
@@ -87,6 +87,11 @@ return [
     */
 
     'prefix' => '',
+
+    'paths' => [
+        'login' => 'accedi',
+        'register' => 'registrati',
+    ],
 
     'domain' => null,
 

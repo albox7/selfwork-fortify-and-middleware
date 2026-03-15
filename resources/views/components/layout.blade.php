@@ -17,9 +17,36 @@
     			</button>
     			<div class="collapse navbar-collapse" id="navbarNav">
     				<ul class="navbar-nav">
-        				<li class="nav-item">
+        				
+						<li class="nav-item">
             				<a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" {{ request()->routeIs('home') ? 'aria-current=page' : '' }} href="{{ route('home') }}">Home</a>
 						</li>
+
+						<li class="nav-item">
+            				<a class="nav-link {{ request()->routeIs('documenti') ? 'active' : '' }}" {{ request()->routeIs('documenti') ? 'aria-current=page' : '' }} href="{{ route('documenti') }}">Documenti</a>
+						</li>
+						
+						@guest
+							<li class="nav-item">
+								<a class="nav-link {{ request()->routeIs('register') ? 'active' : '' }}" {{ request()->routeIs('register') ? 'aria-current="page"' : '' }} href="{{ route('register') }}">Registrati</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link {{ request()->routeIs('login') ? 'active' : '' }}" {{ request()->routeIs('login') ? 'aria-current="page"' : '' }} href="{{ route('login') }}">Accedi</a>
+							</li>
+						@endguest
+
+						@auth
+							<li class="nav-item">
+								<form 
+									{{ request()->routeIs('logout') ? 'active' : '' }}" {{ request()->routeIs('logout') ? 'aria-current="page"' : '' }} 
+									action="{{ route('logout') }}" 
+									method="POST">
+									@csrf
+									<button class="nav-link type="submit">Logout</button>
+								</form>
+							</li>
+						@endauth
+
 					</ul>
 				</div>
   			</div>
